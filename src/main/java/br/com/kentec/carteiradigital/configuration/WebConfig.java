@@ -20,7 +20,7 @@ public class WebConfig {
 		
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		
-			corsConfiguration.setAllowedOrigins(List.of("http://localhost:4200","https://planob.kentec.com.br"));
+			corsConfiguration.setAllowedOrigins(List.of("http://localhost:4200","https://teste.kentec.com.br"));
 			corsConfiguration.setAllowedHeaders(all);
 			corsConfiguration.setAllowedMethods(all);
 			corsConfiguration.setAllowCredentials(true);
