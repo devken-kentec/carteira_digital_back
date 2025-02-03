@@ -3,6 +3,7 @@ package br.com.kentec.carteiradigital.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +16,7 @@ import br.com.kentec.carteiradigital.DTO.ContasDTO;
 import br.com.kentec.carteiradigital.domain.Contas;
 import br.com.kentec.carteiradigital.service.ContaService;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/carteira-digital/api/conta/v1")
 public class ContaController {

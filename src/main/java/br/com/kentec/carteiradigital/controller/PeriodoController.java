@@ -2,6 +2,7 @@ package br.com.kentec.carteiradigital.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.kentec.carteiradigital.domain.Periodos;
 import br.com.kentec.carteiradigital.service.PeriodoService;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/carteira-digital/api/periodo/v1")
 public class PeriodoController {
