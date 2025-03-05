@@ -1,5 +1,7 @@
 package br.com.kentec.carteiradigital.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -42,15 +44,16 @@ public class LancamentoService {
 		pr.verificaPeriodoAtivo(periodo).orElseThrow(()->
 		new ResponseStatusException(HttpStatus.BAD_REQUEST, "Lançamento Fora do Periodo!"));
 		
-		return lr.listarLancamentosReceitasAtivo(natureza, descricao).stream().map(LancamentosDTO::new).collect(Collectors.toList());
+		return lr.listarLancamentosReceitasAtivo(natureza, descricao, periodo).stream().map(LancamentosDTO::new).collect(Collectors.toList());
 	}
 	
 	public Iterable<Lancamentos> listarLancamentosDepesasAtivo(String natureza, String periodo){
-		
-		pr.verificaPeriodoAtivo(periodo).orElseThrow(()->
-		new ResponseStatusException(HttpStatus.BAD_REQUEST, "Lançamento Fora do Periodo!"));
-		
-		return lr.listarLancamentosDepesasAtivo(natureza);
+		System.out.println("Ver Periodo!!!"+ periodo);
+		List<Lancamentos> lancamentoTela = new ArrayList<>();
+		if(pr.verificaPeriodoAtivo(periodo).isPresent()) {
+			lancamentoTela = lr.listarLancamentosDepesasAtivo(natureza, periodo);
+		}
+		return lancamentoTela;
 	}
 	
 	public Lancamentos save(LancamentosDTO lancamentoDTO) {

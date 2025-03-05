@@ -10,10 +10,12 @@ import br.com.kentec.carteiradigital.domain.Lancamentos;
 
 public interface LancamentoRepository extends JpaRepository<Lancamentos, Long> {
 	
-	@Query("SELECT l FROM Lancamentos l WHERE l.naturezaDespesa = :natureza ")
-	List<Lancamentos> listarLancamentosDepesasAtivo(@Param("natureza") String natureza);
+	@Query("SELECT l FROM Lancamentos l WHERE l.naturezaDespesa = :natureza AND l.periodo = :periodo ")
+	List<Lancamentos> listarLancamentosDepesasAtivo(@Param("natureza") String natureza,
+			                                        @Param("periodo") String periodo);
 	
-	@Query("SELECT l FROM Lancamentos l WHERE l.naturezaDespesa = :natureza AND l.conta.descricao = :descricao ")
+	@Query("SELECT l FROM Lancamentos l WHERE l.naturezaDespesa = :natureza AND l.conta.descricao = :descricao AND l.periodo = :periodo ")
 	List<Lancamentos> listarLancamentosReceitasAtivo(@Param("natureza") String natureza,
-													 @Param("descricao") String descricao);
+													 @Param("descricao") String descricao,
+													 @Param("periodo") String periodo);
 }
