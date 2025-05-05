@@ -16,6 +16,10 @@ public class CaixaService {
 		cr.save(caixa);
 	}
 	
+	public void alterar(Caixa caixa) {
+		cr.save(caixa);
+	}
+	
 	public Iterable<Caixa> listar(){
 		return cr.findAll();
 	}
