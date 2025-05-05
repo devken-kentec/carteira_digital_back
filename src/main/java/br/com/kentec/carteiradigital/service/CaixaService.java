@@ -16,5 +16,11 @@ public class CaixaService {
 		cr.save(caixa);
 	}
 	
+	public Iterable<Caixa> listar(){
+		return cr.findAll();
+	}
 	
+	public void excluir(Long id) {
+		cr.deleteById(id);
+	}
 }
