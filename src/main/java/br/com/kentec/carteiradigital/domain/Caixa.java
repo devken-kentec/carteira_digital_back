@@ -29,7 +29,7 @@ public class Caixa implements Serializable{
 	private BigDecimal valor;
 	
 	@Column(name="forma_pagamento", nullable = true, length = 32)
-	private String formaPagemento;
+	private String formaPagamento;
 	
 	@Column(name="data_pagamento", nullable = true, length = 10)
 	@JsonFormat(pattern="yyyy-MM-dd")
@@ -69,12 +69,12 @@ public class Caixa implements Serializable{
 		this.valor = valor;
 	}
 
-	public String getFormaPagemento() {
-		return formaPagemento;
+	public String getFormaPagamento() {
+		return formaPagamento;
 	}
 
-	public void setFormaPagemento(String formaPagemento) {
-		this.formaPagemento = formaPagemento;
+	public void setFormaPagamento(String formaPagamento) {
+		this.formaPagamento = formaPagamento;
 	}
 
 	public String getDataPagamento() {
@@ -103,7 +103,7 @@ public class Caixa implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Caixa [id=" + id + ", nome=" + nome + ", valor=" + valor + ", formaPagemento=" + formaPagemento
+		return "Caixa [id=" + id + ", nome=" + nome + ", valor=" + valor + ", formaPagamento=" + formaPagamento
 				+ ", dataPagamento=" + dataPagamento + ", lancado=" + lancado + ", status=" + status + "]";
 	}
 }
